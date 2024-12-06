@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ VTB Group. Do not reproduce without permission in writing.
+  ~ Copyright (c) 2020 VTB Group. All rights reserved.
+  -->
+
+<Configuration status="WARN" monitorInterval="10">
+  <Properties>
+    <Property name="appName">trading</Property>
+    <Property name="appType">JAVA</Property>
+    <Property name="encProvider"/>
+  </Properties>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>

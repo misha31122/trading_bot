@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ VTB Group. Do not reproduce without permission in writing.
+  ~ Copyright (c) 2020 VTB Group. All rights reserved.
+  -->
+
+<Configuration status="WARN" monitorInterval="10">
+  <Properties>
+    <Property name="appName">trading</Property>
+    <Property name="appType">JAVA</Property>
+    <Property name="encProvider"/>
+  </Properties>
+  <Appenders>
+    <Socket name="Socket" host="127.0.0.1" port="5170"
+      reconnectionDelayMillis="5000">
+      <LogstashLayout prettyPrintEnabled="false"
+        stackTraceEnabled="true"
+        locationInfoEnabled="true"
+        emptyPropertyExclusionEnabled="true"
+        mdcKeyPattern="(?!traceId|spanId|traceFlags).+"
+        timeZoneId="UTC"
+        dateTimeFormatPattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        maxByteCount="1000000">
+        <EventTemplate>
+          {
+          "appName": "${appName}",
+          "localTime": "${json:timestamp}",
+          "level": "${json:level}",
+          "text": "${json:message}",
+
+          "encProvider": "${encProvider}",
+
+          "traceId": "${json:mdc:trace_id}",
+          "spanId": "${json:mdc:span_id}",
+          "traceFlags": "${json:mdc:trace_flags}",
+
+          "appType": "${appType}",
+          "stack": "${json:exception:stackTrace:text}",
+          "levelInt": "${json:level:severity:code}",
+          "loggerName": "${json:logger:name}",
+          "threadName": "${json:thread:name}",
+          "callerClass": "${json:source:className}",
+          "callerMethod": "${json:source:methodName}",
+          "callerLine": "${json:source:lineNumber}",
+          "mdc": "${json:mdc}"
+          }
+        </EventTemplate>
+      </LogstashLayout>
+    </Socket>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Socket"/>
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>

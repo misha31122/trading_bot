@@ -1,2 +1,2 @@
-# trading_bot
-Бот для оповещений по сигналам торговли
+# trading
+Trading service on tinkoff api

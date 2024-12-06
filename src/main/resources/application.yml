@@ -1,0 +1,55 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: tinkoff_invest_signals_bot
+  datasource:
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
+    url: jdbc:postgresql://${PGSERVER}/${PGDATABASE}
+  jpa:
+    show-sql: true
+    database: postgresql
+    properties:
+      hibernate:
+        default_schema: ${PGSCHEMA}
+      org:
+        hibernate:
+          flushMode: COMMIT
+    open-in-view: false
+  liquibase:
+    enabled: true
+    liquibase-schema: ${PGSCHEMA}
+    password: ${PGPASSWORD}
+    user: ${PGUSER}
+    default-schema: ${PGSCHEMA}
+    change-log: 'classpath:/db/changelog/db.changelog-master.yaml'
+
+logging:
+  config: classpath:log4j2-local.xml
+  level:
+    root: INFO
+    org:
+      springframework:
+        web:
+          client:
+            RestTemplate: DEBUG
+
+#Мониторинг
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # включаем все end point's мониторинга
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+
+#Bot settings
+bot:
+  name: ${BOT_NAME}
+  token: ${BOT_TOKEN}
+
+
