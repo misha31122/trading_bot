@@ -9,10 +9,10 @@
     <version>3.2.4</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-  <groupId>com.trading.home</groupId>
-  <artifactId>trading</artifactId>
+  <groupId>ru.tinkoff.trade</groupId>
+  <artifactId>telegram-bot-trading</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>trading</name>
+  <name>trading telegram bot</name>
   <description>trading bot service</description>
 
   <properties>
@@ -25,7 +25,7 @@
     <async.logger.lmax.disruptor.version>4.0.0</async.logger.lmax.disruptor.version>
     <log4j2-logstash-layout.version>1.0.5</log4j2-logstash-layout.version>
     <org.telegram.version>6.9.7.0</org.telegram.version>
-    <telegrambot-chatting-dto.version>0.0.1</telegrambot-chatting-dto.version>
+    <telegrambot-chatting-client.version>0.0.1</telegrambot-chatting-client.version>
   </properties>
 
   <dependencies>
@@ -124,8 +124,8 @@
     </dependency>
     <dependency>
       <groupId>ru.tinkoff.trade</groupId>
-      <artifactId>telegrambot-chatting-dto</artifactId>
-      <version>${telegrambot-chatting-dto.version}</version>
+      <artifactId>telegrambot-chatting-client</artifactId>
+      <version>${telegrambot-chatting-client.version}</version>
     </dependency>
 
     <dependency>
