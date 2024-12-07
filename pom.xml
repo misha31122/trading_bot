@@ -25,7 +25,7 @@
     <async.logger.lmax.disruptor.version>4.0.0</async.logger.lmax.disruptor.version>
     <log4j2-logstash-layout.version>1.0.5</log4j2-logstash-layout.version>
     <org.telegram.version>6.9.7.0</org.telegram.version>
-    <telegrambot-chatting-client.version>0.0.1</telegrambot-chatting-client.version>
+    <telegrambot-chatting-dto.version>0.0.1</telegrambot-chatting-dto.version>
   </properties>
 
   <dependencies>
@@ -122,10 +122,11 @@
       <artifactId>custom-uuid-generator</artifactId>
       <version>${custom-uuid-generator.version}</version>
     </dependency>
+    <!--Dto -->
     <dependency>
       <groupId>ru.tinkoff.trade</groupId>
-      <artifactId>telegrambot-chatting-client</artifactId>
-      <version>${telegrambot-chatting-client.version}</version>
+      <artifactId>telegrambot-chatting-dto</artifactId>
+      <version>${telegrambot-chatting-dto.version}</version>
     </dependency>
 
     <dependency>

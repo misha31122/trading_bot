@@ -14,7 +14,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.tinkoff.telegrambot.entity.ChatData;
 import ru.tinkoff.telegrambot.properties.BotProperties;
-import ru.tinkoff.trade.telegrambot.dto.TradingSignalDto;
+import ru.tinkoff.trade.dto.TradingSignalDto;
 
 @Service
 @RequiredArgsConstructor
