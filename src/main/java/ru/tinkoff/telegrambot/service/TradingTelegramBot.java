@@ -73,7 +73,7 @@ public class TradingTelegramBot extends TelegramLongPollingBot {
     sendMessage(chatId, answer);
   }
 
-  public void sendMessage(Long chatId, String textToSend) {
+  private void sendMessage(Long chatId, String textToSend) {
     SendMessage sendMessage = new SendMessage();
     sendMessage.setChatId(String.valueOf(chatId));
     sendMessage.setText(textToSend);
