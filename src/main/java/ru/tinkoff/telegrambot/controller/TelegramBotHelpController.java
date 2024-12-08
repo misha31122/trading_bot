@@ -21,7 +21,7 @@ public class TelegramBotHelpController {
 
   @Operation(
       summary = "Получение сигнала на покупку в лонг или продажу в шорт",
-      description = "signal")
+      description = "signal long or short")
   @PostMapping(value = "/signal", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<String> initSignal(@RequestBody TradingSignalDto tradingSignalDto) {
     tradingTelegramBot.sendSignal(tradingSignalDto);
