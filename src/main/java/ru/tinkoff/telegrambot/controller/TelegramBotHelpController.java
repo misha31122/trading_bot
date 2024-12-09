@@ -2,6 +2,7 @@ package ru.tinkoff.telegrambot.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,9 +24,9 @@ public class TelegramBotHelpController {
       summary = "Получение сигнала на покупку в лонг или продажу в шорт",
       description = "signal long or short")
   @PostMapping(value = "/signal", produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<String> initSignal(@RequestBody TradingSignalDto tradingSignalDto) {
+  public ResponseEntity<HttpStatus> initSignal(@RequestBody TradingSignalDto tradingSignalDto) {
     tradingTelegramBot.sendSignal(tradingSignalDto);
-    return ResponseEntity.ok("Сигнал отправлен");
+    return ResponseEntity.ok(HttpStatus.ACCEPTED);
   }
 
 }
